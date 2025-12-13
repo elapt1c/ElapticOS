@@ -93,7 +93,7 @@ async def shell_interface():
     print(f"--------ElapticOS Version {kernel_version} running under '{environment}'--------")
     while True:
         command = await asyncio.to_thread(input, "$> ")
-        print(shellwrapper.run_shell_command(command))
+        shellwrapper.run_shell_command(command)
 
 
 # Start the kernel :D
@@ -102,4 +102,5 @@ async def runkernel():
         mainloop(),
         shell_interface()
     )
+
 asyncio.run(runkernel())
