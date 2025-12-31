@@ -3,7 +3,7 @@ os = __elaptic_registry__['os']
 time = __elaptic_registry__['time']
 keyboard = __elaptic_registry__['keyboard']
 
-
+dump_to_ede = True # Flag for programs to exit back to ede, if false it goes to the shell. should default to go back to ede
 
 def lastkey(reset = False):
     last_key = keyboard.last_key

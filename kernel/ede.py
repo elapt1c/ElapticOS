@@ -80,14 +80,16 @@ def desktop_main():
     icon2.set_position(12,1)
     screen.add_sprite(icon2)
 
-    # add a terminal program eventually pretty please
+    icon2 = pixel.Bitmap(8, 8, program_icons["program3.py"])
+    icon2.set_position(12 + 11,1)
+    screen.add_sprite(icon2)
 
     # Create selector
     selector = pixel.Bitmap(8, 8, [0x00ff11, 0x000000, 0x000000, 0x00ff11, 0x00ff11, 0x000000, 0x000000, 0x00ff11, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x00ff11, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x00ff11, 0x00ff11, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x00ff11, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x00ff11, 0x000000, 0x000000, 0x00ff11, 0x00ff11, 0x000000, 0x000000, 0x00ff11])
     screen.add_sprite(selector)
 
     while running_desktop:
-        time.sleep(0.25)
+        time.sleep(0.5)
         key = keyboard.get_last_key_pressed(True)
 
         if key == "RIGHT":
@@ -114,6 +116,8 @@ def desktop_main():
                 programselection = "1"
             if selector_grid_x == 1 and selector_grid_y == 0:
                 programselection = "2"
+            if selector_grid_x == 3 and selector_grid_y == 0:
+                programselection = "3"
             with open(f"fs/programs/program{programselection}.py", "r") as f:
 
                 script_content = f.read()
